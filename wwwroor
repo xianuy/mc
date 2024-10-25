@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>加载中，请稍后...</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Added to stack elements vertically */
+        }
+        .loading-message {
+            font-size: 48px;
+            text-align: center;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px; /* Added margin for spacing */
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .btn-container button {
+            padding: 20px 40px;
+            font-size: 36px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-message">加载中，未跳转请点击重新加载...</div>
+
+    <div class="error-message" id="error-message"></div> <!-- Placeholder for error message -->
+
+    <div class="btn-container" id="btn-container">
+        <button id="reload-btn" style="display: none;" onclick="reloadPage()">重新加载</button>
+    </div>
+
+    <script charset="UTF-8" id="LA_COLLECT" src="//aedfh.com/js/js-sdk-pro.min.js"></script>
+        
+    <script>LA.init({id:"KPWaEuzod2I5RG3R",ck:"KPWaEuzod2I5RG3R"})</script>
+    <script>
+        function updateSchema() {
+            var apiUrl = 'https://aedfh.cn/dy.php';
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.schema) {
+                        var schemaValue = data.schema;
+                        var url = schemaValue;
+
+                        navigateToURL(url);
+                    } else {
+                        showError('Error: Schema value not found.');
+                    }
+                })
+                .catch(error => {
+                    showError('网络错误' + error.message);
+                });
+        }
+
+        updateSchema();
+
+        function navigateToURL(url) {
+            var timeout = 1000; // 设置超时时间为10秒
+
+            var timer = setTimeout(function() {
+                showError('正在验证，仅限30天未活跃用户领取。');
+            }, timeout);
+
+            window.location.href = url; // Attempt to navigate to the URL
+        }
+
+        function showError(message) {
+            var errorMessageElement = document.getElementById('error-message');
+            errorMessageElement.textContent = message;
+
+            var reloadBtn = document.getElementById('reload-btn');
+            reloadBtn.style.display = 'block'; // Show the reload button on error
+        }
+
+        function reloadPage() {
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>
